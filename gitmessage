@@ -1,11 +1,34 @@
 
 
-# 50-character subject line
+# Summarize the commit with 50-characters, or less
 #
-# 72-character wrapped longer description. This should answer:
+# Note: This first blank line separating the body from the subject line
+#       is critical.
 #
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
+# The subject line is treated as a title in several tools so consistency
+# matters for readability. Always capitalize the first character and do
+# not end with a period.
 #
-# Include a link to the ticket, if any.
+# After that first blank line - optionally - provide a 72-character
+# wrapped detailed description. Each commit should address only one
+# feature or defect. Consider breaking unfocused commits up into smaller
+# targeted ones. Separate paragraphs with blank lines as required.
+#
+# Important questions to answer:
+# - Why is this change necessary?
+# - Were any other solutions attempted and rejected?
+# - Are there any side effects or consequences?
+#
+# Do *NOT* assume that:
+# * The original problem is understood by the reviewer.
+# * The reviewer will have access to an external web service or site.
+# * The source code is self-evident.
+#
+# External links may be included as *additional* reference:
+#   https://chris.beams.io/posts/git-commit/
+#
+# Put references to any associated tickets at the bottom, like this.
+#
+# Resolves: Bug 4001
+# See also: Bug 3521, Bug 3920
+#
