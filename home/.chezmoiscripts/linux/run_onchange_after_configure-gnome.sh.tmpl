@@ -1,0 +1,23 @@
+{{ if (and (not .ephemeral) (not .headless)) -}}
+#!/bin/bash
+
+set -eufo pipefail
+
+fc-cache
+
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
+profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles/${profile}/ font "MesloLGS NF"
+
+gsettings set org.gnome.shell favorite-apps "[ \
+	'google-chrome.desktop', \
+	'code_code.desktop', \
+	'org.gnome.Terminal.desktop', \
+	'org.gnome.Nautilus.desktop' \
+]"
+
+gsettings set org.gnome.shell.extensions.ding show-home false
+
+# https://bugs.launchpad.net/ubuntu/+source/gnome-shell/+bug/1878953
+gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
+{{ end -}}

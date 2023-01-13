@@ -1,0 +1,60 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "bat"
+     "curl"
+     "exa"
+     "ffmpeg"
+     "gh"
+     "git"
+     "git-delta"
+     "git-lfs"
+     "gnu-units"
+     "gnupg"
+     "jq"
+     "less"
+     "pinentry-mac"
+     "ripgrep"
+     "tmux"
+     "wget"
+     "xz"
+     "yt-dlp" -}}
+{{ $casks := list
+     "google-chrome"
+     "hammerspoon"
+     "iterm2"
+     "spotify"
+     "visual-studio-code"
+     "vlc" -}}
+
+{{ if eq .chezmoi.arch "amd64" -}}
+{{   $brews = concat $brews (list
+       "shellcheck") -}}
+{{   $casks = concat $casks (list
+       "virtualbox") -}}
+{{ end -}}
+
+{{ if .personal -}}
+{{   $brews = concat $brews (list
+       "pspg"
+       "vault") -}}
+{{   $casks = concat $casks (list
+       "1password-cli"
+       "balenaetcher"
+       "signal"
+       "telegram"
+       "transmission"
+       "viber"
+       "whatsapp") -}}
+{{ end -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF
