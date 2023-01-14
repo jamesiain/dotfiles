@@ -1,0 +1,13 @@
+{{ $brewOp := lookPath "brew" -}}
+{{ if not $brewOp -}}
+{{   if stat "/opt/homebrew/bin/brew" -}}
+{{     $brewOp = "/opt/homebrew/bin/brew" -}}
+{{   else if stat "/usr/local/bin/brew" -}}
+{{     $brewOp = "/usr/local/bin/brew" -}}
+{{   else if stat "/home/linuxbrew/.linuxbrew/bin/brew" -}}
+{{     $brewOp = "/home/linuxbrew/.linuxbrew/bin/brew" -}}
+{{   end -}}
+{{ end -}}
+
+fpath+=("$({{ $brewOp }} --prefix)/share/zsh/site-functions")
+eval "$({{$brewOp }} shellenv)"
