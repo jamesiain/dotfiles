@@ -12,7 +12,7 @@ export ZDOTDIR=${ZDOTDIR:-~/.config/zsh}
 export XDG_CONFIG_HOME=~/.config
 export XDG_CACHE_HOME=~/.cache
 export XDG_DATA_HOME=~/.local/share
-export XDG_RUNTIME_DIR=~/.xdg
+export XDG_RUNTIME_DIR="$TMPDIR"
 
 # Set editors.
 export EDITOR="nvim"
@@ -21,6 +21,9 @@ export PAGER="less"
 
 # Regional settings.
 export TZ="America/Toronto"
+
+# Support for tmux with XDG
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 
 # Set the list of directories that cd searches
 # cdpath=(
