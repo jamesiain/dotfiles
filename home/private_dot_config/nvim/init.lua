@@ -1,0 +1,42 @@
+-- This is my personal Neovim configuration supporting Mac, Linux, Windows and
+-- WSL, with various plugins configured.
+--
+-- Good configurations are personal; built slowly over time with a lot of
+-- consideration and experimentation.
+--
+-- Feel free to take what is useful to use in your own setup.
+--
+-- Aspects of this configuration were inspired by the following sources:
+--  - https://bryankegley.me/posts/nvim-getting-started
+--  - https://github.com/Allaman/nvim
+--  - https://github.com/beauwilliams/Dotfiles
+--  - https://github.com/Conni2461/dotfiles
+--  - https://github.com/craftzdog/dotfiles-public
+--  - https://github.com/declancm/.dotfiles
+--  - https://github.com/jc00ke/dotfiles
+--  - https://github.com/jdhao/nvim-config
+--  - https://github.com/ldelossa/dotfiles
+--  - https://github.com/LunarVim/Neovim-from-scratch
+--  - https://github.com/mitchpaulus/dotfiles
+--  - https://github.com/numToStr/dotfiles
+--  - https://github.com/nvim-lua/kickstart.nvim
+--  - https://github.com/olimorris/dotfiles
+--  - https://github.com/rebelot/dotfiles
+--  - https://github.com/tjdevries/config_manager
+--  - https://github.com/voyeg3r/nvim
+--  - https://github.com/wbthomason/packer.nvim#bootstrapping
+--  - https://github.com/whatsthatsmell/dots
+--  - https://gitlab.com/dwt1/dotfiles
+--  - https://gitlab.com/gabmus/nvpunk
+--
+--  The initial impetus was to recreate (as much as appropriate) the Vim
+--  configuration from thoughtbot's dotfiles while taking advantage of the
+--  improvements afforded by Neovim's modern infrastructure.
+--
+--  You can find that original Vim configuration here:
+--  - https://github.com/thoughtbot/dotfiles
+--
+-- Author: James MacMillan
+-- Email: jamesiain@me.com
+
+require "jamesiain"
