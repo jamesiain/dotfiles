@@ -261,6 +261,7 @@ return require("packer").startup {
     -- use_cs "kvrohit/substrata.nvim"
     -- use_cs "kyazdani42/blue-moon"
     -- use_cs "luisiacc/gruvbox-baby"
+    -- use_cs "mrjones2014/lighthaus.nvim"
     -- use_cs "nxvu699134/vn-night.nvim"
     -- use_cs "ofirgall/ofirkai.nvim"
     -- use_cs "olivercederborg/poimandres.nvim"
