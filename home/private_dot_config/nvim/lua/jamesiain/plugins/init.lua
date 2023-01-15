@@ -203,6 +203,12 @@ return require("packer").startup {
       config = plugin_defaults "fidget",
     }
 
+    use { -- buffer/mark/tabpage/colorscheme switcher
+      "toppair/reach.nvim",
+      requires = "nvim-tree/nvim-web-devicons",
+      config = plugin_defaults "reach",
+    }
+
     use { -- snazzy bufferline with tabpage integration
       "akinsho/bufferline.nvim",
       tag = "v3.*",
