@@ -255,6 +255,7 @@ return require("packer").startup {
     -- use_cs "cpea2506/one_monokai.nvim"
     -- use_cs "fenetikm/falcon"
     -- use_cs "glepnir/zephyr-nvim"
+    use_cs "JoosepAlviste/palenightfall.nvim"
     -- use_cs "kaiuri/nvim-juliana"
     -- use_cs "kvrohit/mellow.nvim"
     -- use_cs "kvrohit/rasmus.nvim"
