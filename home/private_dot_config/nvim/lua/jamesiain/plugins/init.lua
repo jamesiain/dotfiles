@@ -115,6 +115,13 @@ return require("packer").startup {
       config = plugin_config "obsidian",
     }
 
+    use { -- 1Password for NeoVim!
+      "mrjones2014/op.nvim",
+      tag = "v1.*",
+      run = "make install",
+      config = plugin_defaults "op",
+    }
+
     use { -- the premier plugin for git
       "tpope/vim-fugitive",
       require = {
