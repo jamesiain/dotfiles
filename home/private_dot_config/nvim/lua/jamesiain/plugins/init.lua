@@ -49,18 +49,6 @@ return require("packer").startup {
       config = plugin_config "lspconfig",
     }
 
-    use { -- debug adapter protocol (DAP)
-      "mfussenegger/nvim-dap",
-      requires = {
-        "ldelossa/nvim-dap-projects", -- per-project DAP settings
-        "rcarriga/nvim-dap-ui", -- enhanced UI for DAP
-        "theHamsta/nvim-dap-virtual-text", -- live evaluation of locals
-        -- language-specific adapters
-        "jbyuki/one-small-step-for-vimkind", -- Lua (inside NeoVim)
-      },
-      config = plugin_config "dap",
-    }
-
     use { -- autocompletion
       "hrsh7th/nvim-cmp",
       requires = {
@@ -91,6 +79,18 @@ return require("packer").startup {
         "p00f/nvim-ts-rainbow",
       },
       config = plugin_config "treesitter",
+    }
+
+    use { -- debug adapter protocol (DAP)
+      "mfussenegger/nvim-dap",
+      requires = {
+        "ldelossa/nvim-dap-projects", -- per-project DAP settings
+        "rcarriga/nvim-dap-ui", -- enhanced UI for DAP
+        "theHamsta/nvim-dap-virtual-text", -- live evaluation of locals
+        -- language-specific adapters
+        "jbyuki/one-small-step-for-vimkind", -- Lua (inside NeoVim)
+      },
+      config = plugin_config "dap",
     }
 
     use { -- toggle comments ON/OFF on visual regions/lines
