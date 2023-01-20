@@ -85,6 +85,8 @@
   fsckobjects = true
 [trim]
   bases = master,gh-pages
+[credential]
+  helper = cache --timeout 7200
 {{- $ghPath := lookPath "gh" }}
 {{- if $ghPath }}
 [credential "https://github.com"]
