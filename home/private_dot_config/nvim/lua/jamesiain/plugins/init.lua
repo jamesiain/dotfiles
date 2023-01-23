@@ -313,7 +313,7 @@ return require("packer").startup {
     -- use_cs "rmehri01/onenord.nvim"
     use_cs { "rose-pine/neovim", as = "rose-pine" }
     -- use_cs "sainnhe/everforest"
-    -- use_cs "savq/melange"
+    -- use_cs "savq/melange-nvim"
     use_cs "shaunsingh/nord.nvim"
     -- use_cs "shaunsingh/solarized.nvim"
     -- use_cs { "ramojus/mellifluous.nvim", requires = "rktjmp/lush.nvim" }
