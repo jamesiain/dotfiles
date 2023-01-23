@@ -279,6 +279,7 @@ return require("packer").startup {
     -- use_cs "nxvu699134/vn-night.nvim"
     -- use_cs "ofirgall/ofirkai.nvim"
     -- use_cs "olivercederborg/poimandres.nvim"
+    use_cs "paulfrische/reddish.nvim"
     -- use_cs "phha/zenburn.nvim"
     -- use_cs "rafamadriz/neon"
     use_cs "ray-x/aurora"
