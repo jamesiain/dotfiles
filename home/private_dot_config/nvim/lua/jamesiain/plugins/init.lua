@@ -307,6 +307,7 @@ return require("packer").startup {
     use_cs "kdheepak/monochrome.nvim"
     -- use_cs "lourenci/github-colors"
     -- use_cs "morhetz/gruvbox"
+    -- use_cs "noorwachid/nvim-nightsky"
     -- use_cs "olimorris/onedarkpro.nvim"
     -- use_cs { "pradyungn/Mountain", as = "mountain", rtp = "vim" }
     -- use_cs { "rebelot/kanagawa.nvim", config = plugin_defaults "kanagawa" }
