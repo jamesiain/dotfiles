@@ -285,7 +285,7 @@ return require("packer").startup {
     use_cs "ray-x/aurora"
     -- use_cs { "rockyzhang24/arctic.nvim", requires = "rktjmp/lush.nvim" }
     -- use_cs "sainnhe/sonokai"
-    use_cs "sam4llis/nvim-tundra"
+    -- use_cs "sam4llis/nvim-tundra"
     -- use_cs "shaunsingh/moonlight.nvim"
     -- use_cs "theniceboy/nvim-deus"
     -- use_cs "tiagovla/tokyodark.nvim"
