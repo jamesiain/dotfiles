@@ -8,7 +8,7 @@ local set = vim.keymap.set
 
 persist_colorscheme.setup {
   file_path = vim.fn.stdpath "state" .. os_sep .. "colorscheme-persist.lua",
-  fallback = "lunaperche", -- least offensive built-in colorscheme
+  fallback = "habamax", -- least offensive built-in colorscheme
   disable = { -- do not include built-in colorschemes in picker
     "blue",
     "darkblue",
@@ -17,9 +17,9 @@ persist_colorscheme.setup {
     "desert",
     "elflord",
     "evening",
-    "habamax",
     "industry",
     "koehler",
+    "lunaperche",
     "morning",
     "murphy",
     "pablo",
