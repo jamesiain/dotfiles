@@ -37,35 +37,35 @@ return require("packer").startup {
     use "lewis6991/impatient.nvim"
 
     use { -- language server protocol (LSP)
-      "neovim/nvim-lspconfig",
+      'VonHeikemen/lsp-zero.nvim',
       requires = {
-        -- automatic installation of servers to stdpath
+        -- LSP Support
+        "neovim/nvim-lspconfig", -- Required
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        -- ui improvements
+
+        -- Autocompletion
+        "hrsh7th/nvim-cmp", -- Required
+        "hrsh7th/cmp-nvim-lsp", -- Required
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-calc",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "hrsh7th/cmp-nvim-lua",
+        "lukas-reineke/cmp-rg",
+        "rcarriga/cmp-dap",
+        "saadparwaiz1/cmp_luasnip",
+
+        -- Snippets
+        "L3MON4D3/LuaSnip", -- Required
+        "rafamadriz/friendly-snippets",
+
+        -- UI improvements for LSP
         "onsails/lspkind-nvim",
         "SmiteshP/nvim-navic",
       },
-      config = plugin_config "lspconfig",
-    }
-
-    use { -- autocompletion
-      "hrsh7th/nvim-cmp",
-      requires = {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-nvim-lsp-signature-help",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-cmdline",
-        "hrsh7th/cmp-calc",
-        "lukas-reineke/cmp-rg",
-        "rcarriga/cmp-dap",
-        -- snippets
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
-        "rafamadriz/friendly-snippets",
-      },
-      config = plugin_config "cmp",
+      config = plugin_config "lsp-zero",
     }
 
     use { -- highlight, edit, and navigate code
