@@ -57,7 +57,18 @@ return {
     end,
   },
 
-  -- colorschemes
+  -- restore the persisted colorscheme at startup
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = function()
+        local colorscheme = require("colorscheme-persist").get_colorscheme()
+        vim.cmd("colorscheme " .. colorscheme)
+      end,
+    },
+  },
+
+  -- available colorschemes
   { "shaunsingh/oxocarbon.nvim", lazy = false },
   { "ellisonleao/gruvbox.nvim", lazy = false },
   { "rose-pine/neovim", name = "rose-pine", lazy = false },
