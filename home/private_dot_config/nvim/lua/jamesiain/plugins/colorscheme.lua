@@ -62,4 +62,9 @@ return {
   { "ellisonleao/gruvbox.nvim", lazy = false },
   { "rose-pine/neovim", name = "rose-pine", lazy = false },
   { "tokyonight.nvim", lazy = false },
+  { "zanglg/nova.nvim", lazy = false },
+  { "AlessandroYorba/Alduin", lazy = false },
+  { "JoosepAlviste/palenightfall.nvim", lazy = false },
+  { "ray-x/aurora", lazy = false },
+  { "kdheepak/monochrome.nvim", lazy = false },
 }
