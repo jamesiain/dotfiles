@@ -14,6 +14,17 @@ return {
     dependencies = {
       "nvim-telescope/telescope-dap.nvim",
       "xiyaowong/nvim-transparent",
+
+      -- available colorschemes
+      "AlessandroYorba/Alduin",
+      "JoosepAlviste/palenightfall.nvim",
+      "ellisonleao/gruvbox.nvim",
+      "kdheepak/monochrome.nvim",
+      "ray-x/aurora",
+      { "rose-pine/neovim", name = "rose-pine" },
+      "shaunsingh/oxocarbon.nvim",
+      "tokyonight.nvim",
+      "zanglg/nova.nvim",
     },
     keys = {
       {
@@ -67,15 +78,4 @@ return {
       end,
     },
   },
-
-  -- available colorschemes
-  { "shaunsingh/oxocarbon.nvim", lazy = false },
-  { "ellisonleao/gruvbox.nvim", lazy = false },
-  { "rose-pine/neovim", name = "rose-pine", lazy = false },
-  { "tokyonight.nvim", lazy = false },
-  { "zanglg/nova.nvim", lazy = false },
-  { "AlessandroYorba/Alduin", lazy = false },
-  { "JoosepAlviste/palenightfall.nvim", lazy = false },
-  { "ray-x/aurora", lazy = false },
-  { "kdheepak/monochrome.nvim", lazy = false },
 }
