@@ -18,6 +18,7 @@ return {
       -- available colorschemes
       "AlessandroYorba/Alduin",
       "JoosepAlviste/palenightfall.nvim",
+      { "catppuccin/nvim", name = "catppuccin" },
       "ellisonleao/gruvbox.nvim",
       "kdheepak/monochrome.nvim",
       "ray-x/aurora",
