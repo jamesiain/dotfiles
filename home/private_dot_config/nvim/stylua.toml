@@ -1,5 +1,0 @@
-# config for stylua, ref: https://github.com/JohnnyMorganz/StyLua
-line_endings = "Unix"
-indent_type = "Spaces"
-indent_width = 2
-no_call_parentheses = true

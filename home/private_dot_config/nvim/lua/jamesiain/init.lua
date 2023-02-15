@@ -1,6 +1,0 @@
-require "jamesiain.autocmds"
-require "jamesiain.disable_builtins"
-require "jamesiain.globals"
-require "jamesiain.options"
-require "jamesiain.plugins"
-require "jamesiain.keymaps"
