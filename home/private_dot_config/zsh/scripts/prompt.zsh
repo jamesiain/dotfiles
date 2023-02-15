@@ -22,50 +22,54 @@ precmd() {
     unset cmd_empty
 }
 
+
 zmodload zsh/datetime
-
 function zle-line-init zle-keymap-select zle-line-pre-redraw {
-    if [[ ! -z $ACCEPT_LINE ]]; then
-        ACCEPT_LINE=""
-        return
-    fi
-
-    PROMPT=""
-
-    running_in_docker && \
-        PROMPT+="%F{blue}%B[ %b%f"
-
-    if [[ -n $SSH_CONNECTION ]]; then
-        LOCAL_COLOR="magenta"
+    if [[ $ACCEPT_LINE == "blankline" ]]; then
+        PROMPT=""
+        RPROMPT=""
+    elif [[ $ACCEPT_LINE == "timestamp" ]]; then
+        PROMPT="%F{magenta}%D{%F %T}%f %# "
+        RPROMPT=""
     else
-        LOCAL_COLOR="green"
-    fi
+        PROMPT=""
 
-    ZSH_THEME_VIRTUALENV_PREFIX="%F{cyan}["
-    ZSH_THEME_VIRTUALENV_SUFFIX="]%f "
+        running_in_docker && \
+            PROMPT+="%F{blue}%B[ %b%f"
 
-    PROMPT+="\$(virtualenv_prompt_info)"
-    PROMPT+="%F{%(!.red.blue)}%n%f"
-    PROMPT+="%F{cyan}@%f%F{${LOCAL_COLOR}}%m%f %F{yellow}%3~%f %# "
-
-    if [[ "$KEYMAP" == vicmd ]]; then
-        local VISUAL_MODE="%{$fg[black]%} %{$bg[cyan]%} VISUAL %{$reset_color%}"
-        local NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
-
-        if (( REGION_ACTIVE )); then
-            VI_MODE="$VISUAL_MODE"
+        if [[ -n $SSH_CONNECTION ]]; then
+            LOCAL_COLOR="magenta"
         else
-            VI_MODE="$NORMAL_MODE"
+            LOCAL_COLOR="green"
         fi
-    else
-        VI_MODE=""
+
+        ZSH_THEME_VIRTUALENV_PREFIX="%F{cyan}["
+        ZSH_THEME_VIRTUALENV_SUFFIX="]%f "
+
+        PROMPT+="\$(virtualenv_prompt_info)"
+        PROMPT+="%F{%(!.red.blue)}%n%f"
+        PROMPT+="%F{cyan}@%f%F{${LOCAL_COLOR}}%m%f %F{yellow}%3~%f %# "
+
+        if [[ "$KEYMAP" == vicmd ]]; then
+            local VISUAL_MODE="%{$fg[black]%} %{$bg[cyan]%} VISUAL %{$reset_color%}"
+            local NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
+
+            if (( REGION_ACTIVE )); then
+                VI_MODE="$VISUAL_MODE"
+            else
+                VI_MODE="$NORMAL_MODE"
+            fi
+        else
+            VI_MODE=""
+        fi
+
+        RPROMPT="${VI_MODE} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
+
+        running_in_docker && \
+            RPROMPT+="%F{blue}%B ]%b%f"
     fi
 
-    RPROMPT="${VI_MODE} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
-
-    running_in_docker && \
-        RPROMPT+="%F{blue}%B ]%b%f"
-
+    ACCEPT_LINE=""
     zle reset-prompt
 }
 
@@ -75,14 +79,13 @@ zle -N zle-line-pre-redraw
 
 ACCEPT_LINE=""
 function change-prompt-on-accept-line {
-    ACCEPT_LINE="true"
-    PROMPT="%F{magenta}%D{%F %T}%f %# "
-    RPROMPT=""
-
-    if [[ ! -z $BUFFER ]]; then
-        zle reset-prompt
-        zle accept-line
+    if [[ -z $BUFFER ]]; then
+        ACCEPT_LINE="blankline"
+    else
+        ACCEPT_LINE="timestamp"
     fi
+
+    zle accept-line
 }
 
 zle -N change-prompt-on-accept-line
