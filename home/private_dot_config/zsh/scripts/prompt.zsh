@@ -10,18 +10,7 @@ running_in_docker() {
     fi
 }
 
-preexec() {
-    [[ -z $BUFFER ]] && cmd_empty=TRUE
-}
-
-precmd() {
-    if [[ -n $cmd_empty ]]; then
-        echo ""
-    fi
-
-    unset cmd_empty
-}
-
+precmd() echo   # print a blank line before each entry in the command history
 
 zmodload zsh/datetime
 function zle-line-init zle-keymap-select zle-line-pre-redraw {
