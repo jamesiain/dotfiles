@@ -10,22 +10,29 @@ not_in_tmux() {
 }
 
 session_exists() {
-	tmux has-session -t "=$session_name"
+	tmux \; \
+		source "$XDG_CONFIG_HOME"/tmux/tmux.conf \; \
+		has-session -t "=$session_name"
 }
 
 create_detached_session() {
-	(TMUX='' tmux new-session -Ad -s "$session_name")
+	(TMUX='' tmux \
+		source "$XDG_CONFIG_HOME"/tmux/tmux.conf \; \
+		new-session -Ad -s "$session_name")
 }
 
 create_if_needed_and_attach() {
 	if not_in_tmux; then
-		tmux new-session -As "$session_name"
-		tmux source ~/.config/tmux/tmux.conf
+		tmux \
+			source "$XDG_CONFIG_HOME"/tmux/tmux.conf \; \
+			new-session -As "$session_name"
 	else
 		if ! session_exists; then
 			create_detached_session
 		fi
-		tmux switch-client -t "$session_name"
+		tmux \
+			source "$XDG_CONFIG_HOME"/tmux/tmux.conf \; \
+			switch-client -t "$session_name"
 	fi
 }
 
