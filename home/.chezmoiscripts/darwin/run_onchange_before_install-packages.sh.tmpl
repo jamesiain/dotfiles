@@ -5,8 +5,10 @@ set -eufo pipefail
 {{ $brews := list
      "bat"
      "curl"
+     "entr"
      "exa"
      "ffmpeg"
+     "fzf"
      "gh"
      "git"
      "git-delta"
@@ -20,7 +22,8 @@ set -eufo pipefail
      "tmux"
      "wget"
      "xz"
-     "yt-dlp" -}}
+     "yt-dlp"
+     "zoxide" -}}
 {{ $casks := list
      "google-chrome"
      "hammerspoon"
