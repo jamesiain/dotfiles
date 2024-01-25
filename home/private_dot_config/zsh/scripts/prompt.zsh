@@ -23,15 +23,15 @@ precmd() {
 
 zmodload zsh/datetime
 function zle-line-init zle-keymap-select zle-line-pre-redraw {
-    if [[ $ACCEPT_LINE == "blankline" ]]; then
-        PROMPT=""
-        RPROMPT=""
-    elif [[ $ACCEPT_LINE == "timestamp" ]]; then
-        PROMPT="%F{magenta}%D{%F %T}%f %# "
-        RPROMPT=""
-    else
-        PROMPT=""
+    PROMPT=""
+    RPROMPT=""
 
+    if [[ $ACCEPT_LINE == "blankline" ]]; then
+        # PROMPT+="%F{yellow}    ···%f"
+        # RPROMPT+="%F{yellow}···    %f"
+    elif [[ $ACCEPT_LINE == "timestamp" ]]; then
+        PROMPT+="%F{magenta}%D{%F %T}%f %# "
+    else
         running_in_docker && \
             PROMPT+="%F{blue}%B[ %b%f"
 
@@ -61,7 +61,7 @@ function zle-line-init zle-keymap-select zle-line-pre-redraw {
             VI_MODE=""
         fi
 
-        RPROMPT="${VI_MODE} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
+        RPROMPT+="${VI_MODE} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
 
         running_in_docker && \
             RPROMPT+="%F{blue}%B ]%b%f"
