@@ -10,7 +10,16 @@ running_in_docker() {
     fi
 }
 
-precmd() echo   # print a blank line before each entry in the command history
+precmd() {
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE == 0 ]]; then
+        PREV_EXIT=0
+    elif [[ $EXIT_CODE != $PREV_EXIT ]]; then
+        print -P -u2 "%F{red}Exit code: %B$EXIT_CODE%b%f"
+        PREV_EXIT=$EXIT_CODE
+    fi
+    echo   # print a blank line before each entry in the command history
+}
 
 zmodload zsh/datetime
 function zle-line-init zle-keymap-select zle-line-pre-redraw {
